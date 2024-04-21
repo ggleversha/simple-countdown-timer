@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #countdown {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Countdown Timer</h1>
+  <div id="countdown"></div>
+
+  <script>
+    function updateCountdown() {
+      var now = new Date();
+      var target = new Date();
+      
+      // Set the target time to 6:00 AM NZ time
+      target.setUTCHours(18, 0, 0, 0); // 6:00 AM UTC (adjust for NZ time)
+      
+      // If target time has already passed today, set it for the same time tomorrow
+      if (now > target) {
+        target.setUTCDate(target.getUTCDate() + 1); // Move to tomorrow
+      }
+      
+      var diff = target - now;
+      var hours = Math.floor(diff / (1000 * 60 * 60));
+      var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      var countdownElement = document.getElementById("countdown");
+      countdownElement.innerHTML = hours + "h " + minutes + "m " + seconds + "s";
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
