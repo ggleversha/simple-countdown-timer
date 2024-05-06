@@ -19,7 +19,6 @@
   </style>
 </head>
 <body>
-  <h1></h1>
   <div id="countdown"></div>
 
   <script>
@@ -27,8 +26,8 @@
       var now = new Date();
       var target = new Date();
       
-      // Set the target time to 6:00 AM NZ time
-      target.setUTCHours(18, 0, 0, 0); // 6:00 AM UTC (adjust for NZ time)
+      // Set the target time to 12:00 AM NZ time
+      target.setUTCHours(18, 0, 0, 0); // 12:00 AM UTC (adjust for NZ time)
       
       // If target time has already passed today, set it for the same time tomorrow
       if (now > target) {
@@ -49,3 +48,4 @@
   </script>
 </body>
 </html>
+
