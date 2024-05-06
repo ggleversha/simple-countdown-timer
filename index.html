@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Countdown Timer</title>
+  <title>Leaderboard and Countdown Timer</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
+      padding: 20px;
       margin-top: 50px;
       color: white; /* Set the default text color to white for the entire page */
       background-color: black; /* Set a background color for better visibility */
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
     }
     #countdown {
       font-size: 60px;
@@ -20,8 +28,35 @@
 </head>
 <body>
   <div id="countdown"></div>
+  <ul id="leaderboard">
+    <!-- Leaderboard entries will be populated here -->
+  </ul>
 
   <script>
+    const leaderboard = document.getElementById('leaderboard');
+
+    // Dummy data for illustration purposes
+    const users = [
+      { name: 'Jack', day: 14 },
+      { name: 'John', day: 8 },
+      { name: 'Jane', day: 12 }
+    ];
+
+    // Function to populate the leaderboard
+    function populateLeaderboard() {
+      users.sort((a, b) => b.day - a.day); // Sort users by day in descending order
+
+      leaderboard.innerHTML = '';
+      users.forEach(user => {
+        const li = document.createElement('li');
+        li.textContent = `${user.name} - Day ${user.day}`;
+        leaderboard.appendChild(li);
+      });
+    }
+
+    // Initialize the leaderboard
+    populateLeaderboard();
+
     function updateCountdown() {
       var now = new Date();
       var target = new Date();
