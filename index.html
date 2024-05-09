@@ -35,21 +35,24 @@
   <script>
     const leaderboard = document.getElementById('leaderboard');
 
-    // Dummy data for illustration purposes
-    const users = [
-      { name: 'Jack', day: 14 },
-      { name: 'John', day: 12 },
-      { name: 'Jane', day: 8 }
-    ];
-
     // Function to populate the leaderboard
     function populateLeaderboard() {
-      users.sort((a, b) => b.day - a.day); // Sort users by day in descending order
-
+      // Clear the leaderboard
       leaderboard.innerHTML = '';
-      users.forEach(user => {
+
+      // Populate the leaderboard dynamically if you have data from somewhere else
+      // For instance, you could fetch data from an API and then populate the leaderboard
+      // For this example, let's assume we have an array of objects with 'day' property
+      const dataFromSomewhere = [
+        { day: 14 },
+        { day: 12 },
+        { day: 8 }
+      ];
+
+      // Display only the days without names
+      dataFromSomewhere.forEach(user => {
         const li = document.createElement('li');
-        li.textContent = `${user.name} - Day ${user.day}`;
+        li.textContent = `Day ${user.day}`; // Removed user.name
         leaderboard.appendChild(li);
       });
     }
