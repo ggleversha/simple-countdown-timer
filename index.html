@@ -8,14 +8,15 @@
 <style>
       body {
   background: #333;
-  font-family: sans-serif;#myFlipper {
+  font-family: sans-serif;
+}
+
+#myFlipper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9999; /* Ensure it's on top of other elements */
-}
-
 }
 
 .flipper {
@@ -280,7 +281,15 @@
   
 }
 
-    </style>
+.time-remaining {
+  position: fixed;
+  top: calc(100% - 30px);
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}
+
+</style>
 </head>
 
 <body>
@@ -299,6 +308,7 @@ src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script></div>
 <div class="flipper" data-reverse="true" data-datetime="2022-01-01 00:00:00" data-template="ddd|HH|ii|ss" data-labels="Days|Hours|Minutes|Seconds" id="myFlipper"></div>
 
+<div class="time-remaining">TIME REMAINING</div> <!-- New div for "TIME REMAINING" -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
